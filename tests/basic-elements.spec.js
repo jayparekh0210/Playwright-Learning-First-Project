@@ -18,7 +18,15 @@ test("Intrecting with basic Element using CSS Selector", async ({ page }) => {
     await page.goto(SHOP_PRACTICE_URL);
     await page.locator("input#first-name").fill("Jay");
     await page.locator("input#gender-male").click()
-    await page.locator("#input#chk-overnight").check();
+    await page.locator("input#chk-overnight").check();
     await page.locator("select#country-select").selectOption("Canada");
 
+});
+
+test('Intrecting with basic Element using Playwright Selector', async ({ page }) => {
+  await page.goto(SHOP_PRACTICE_URL);
+  await page.getByRole('textbox', { name: 'First Name *' }).click();
+  await page.getByRole('radio', { name: 'Male', exact: true }).check();
+  await page.getByRole('checkbox', { name: 'Overnight' }).check();
+  await page.getByLabel('Country').selectOption('IN');
 });
