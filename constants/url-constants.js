@@ -1,0 +1,1 @@
+export const SHOP_PRACTICE_URL = "https://vardhantesting84.github.io/ShopPractice/";
